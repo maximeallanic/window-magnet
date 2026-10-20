@@ -10,15 +10,15 @@ extension's `name` and its UUID are unchanged. Research date: 2026-10-20.
 French: « Des bords de fenêtres qui s'aimantent, avec un ressort. »
 
 Longer, for places with room for a second sentence: "Drag a window near another one and it lands flush; keep
-pulling and it lets go. For GNOME Shell 51."
+pulling and it lets go. For GNOME Shell 50 and 51."
 
 ## Description (About, 350 characters max)
 
 > GNOME Shell extension: while you move or resize a window, its edges snap to the other windows and to the screen
 > edges, with a short spring and no key to hold. Pull further and it lets go. Tabs dropped on the desktop open where
-> you drop them. A switch for each source; no tiling, no shortcuts. GNOME Shell 51.
+> you drop them. A switch for each source; no tiling, no shortcuts. GNOME Shell 50 and 51.
 
-308 characters. Website field: leave empty until there is an extensions.gnome.org page, then put that link.
+315 characters. Website field: leave empty until there is an extensions.gnome.org page, then put that link.
 
 ## Topics (12)
 
@@ -36,7 +36,7 @@ Snapcraft packages), `tiling` and `tiling-window-manager` (it does not tile, and
 Upload [social-preview.png](social-preview.png) (1280×640) in **Settings > General > Social preview**. It shows the
 real capture `media/demo-poster.png` (three windows edge to edge in a nested GNOME Shell 51), cropped and scaled, with
 the pitch line. The text does not contain the extension's name, so it survives a rename. At 320 px wide (the size of a
-link card in a feed) the headline and the second line stay readable; the bottom line (GNOME 51, MIT) is small but
+link card in a feed) the headline and the second line stay readable; the bottom line (GNOME 50 and 51, MIT) is small but
 legible.
 
 librsvg only loads images inside the SVG's folder, so render from a scratch copy:

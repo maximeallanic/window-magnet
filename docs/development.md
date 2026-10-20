@@ -15,7 +15,7 @@ install.sh, verify.sh, uninstall.sh
 
 ## Requirements
 
-GNOME Shell 51 with `gjs` and `gnome-extensions`, `gettext`, `python3`. Optional: `shellcheck`, Node.js 20+ for ESLint
+GNOME Shell 50 or 51 with `gjs` and `gnome-extensions`, `gettext`, `python3`. Optional: `shellcheck`, Node.js 20+ for ESLint
 (`npm ci`), `python3-dbusmock` and `ffmpeg` for `dev/nested/`. On Debian testing:
 
 ```sh
@@ -51,6 +51,18 @@ if your real dconf database changed during the run.
 
 Run heavy jobs in their own memory-limited scope if your machine is busy, for example
 `systemd-run --user --scope -p MemoryHigh=4G -p MemoryMax=6G dev/nested/nested.sh ...`.
+
+The same run works for another GNOME Shell major inside a container: that is how GNOME Shell 50 (Debian testing,
+50.5) is tested from a GNOME 51 machine. Build an image from `debian:testing` with `gnome-shell
+gnome-shell-extension-prefs dbus-daemon dconf-cli dconf-service python3-gi python3-dbusmock gir1.2-gtk-4.0
+libgl1-mesa-dri` (the Shell renders with llvmpipe, no GPU needed), pack the zip on the host, then:
+
+```sh
+scripts/pack.sh --out "$s/zip"
+docker run --rm -v "$PWD:/repo:ro" -v "$s:/s" IMAGE bash -c 'mkdir -m700 -p /tmp/xdg &&
+    XDG_RUNTIME_DIR=/tmp/xdg /repo/dev/nested/nested.sh --scenario e2e --out /s/e2e \
+    --zip /s/zip/window-magnet@maximeallanic.github.io.shell-extension.zip'
+```
 
 ## Regenerating the media
 

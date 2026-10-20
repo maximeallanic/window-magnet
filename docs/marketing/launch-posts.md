@@ -38,7 +38,7 @@ used (code, docs, these posts). `[REPO]` is `https://github.com/maximeallanic/wi
 
 Use these as raw material. Each line is checked against the repository or a linked source.
 
-- **What it is**: a GNOME Shell 51 extension, MIT, version 0.1.0. While you move or resize a window with the pointer
+- **What it is**: a GNOME Shell 50 and 51 extension, MIT, version 0.1.0. While you move or resize a window with the pointer
   or touch, its edges snap to the edges of the other windows on the same workspace and monitor, and to the screen's
   work area (below the top bar, beside docks). Snap distance 16 px by default, 4 to 64.
 - **The history it answers**: GNOME 40's Mutter made window-edge snapping Ctrl-only (Mutter NEWS, 40.alpha: "Only
@@ -62,9 +62,9 @@ Use these as raw material. Each line is checked against the repository or a link
   requests the size at `window-created` and the position at `shown`. No app is named in the code.
 - **Privacy**: no subprocess, no network, no file access.
 - **Tests**: headless unit tests (gjs) for the snapping, jump and drop maths; an end-to-end run in a nested GNOME
-  Shell 51 that drags real windows and disables the extension in the middle of a drag to check no window stays
+  Shell (50 and 51) that drags real windows and disables the extension in the middle of a drag to check no window stays
   offset. The README GIF was recorded in that nested Shell, at real speed.
-- **Limits, say them up front**: GNOME Shell 51 only; not on extensions.gnome.org yet; pointer and touch drags
+- **Limits, say them up front**: GNOME Shell 50 and 51 only; not on extensions.gnome.org yet; pointer and touch drags
   only, not keyboard moves; not tested alongside tiling extensions; English and French translations so far; first
   release, not yet tried on many machines.
 - **What you want from readers**: reports from other distributions, monitors and apps; translations.
@@ -94,7 +94,7 @@ sentences:
 
 Title (yours to reword):
 
-> I missed GNOME snapping windows to each other, so I made an extension that does it with a spring (GNOME 51)
+> I missed GNOME snapping windows to each other, so I made an extension that does it with a spring (GNOME 50 and 51)
 
 Body outline:
 
@@ -102,7 +102,7 @@ Body outline:
 - What it does in two lines; attach `media/demo.gif` (or the MP4) so people see the spring.
 - Why it does not feel like the old snapping: spring, holds then lets go, facing edges only, a switch per source.
 - GNOME-side details: public Shell and Mutter APIs only; nothing created before `enable()`, everything undone in
-  `disable()`; follows *Reduce Animation*; GNOME Shell 51 only; not on extensions.gnome.org yet.
+  `disable()`; follows *Reduce Animation*; GNOME Shell 50 and 51 only; not on extensions.gnome.org yet.
 - Install line (one-line once released, else clone + `--from-source`); `verify.sh` for "nothing happens".
 - Ask: "If you use a tiling extension too, tell me whether they get along."
 
@@ -134,7 +134,7 @@ Write it yourself; keep it under 500 characters (a link counts as 23). Ingredien
 
 - one sentence: window edges snap together on GNOME, with a spring, no key to hold;
 - one sentence: pull further and it lets go; resize snaps too; dropped tabs open where you drop them;
-- "GNOME Shell 51, MIT, feedback welcome", `[REPO]`;
+- "GNOME Shell 50 and 51, MIT, feedback welcome", `[REPO]`;
 - hashtags: `#GNOME #Linux #FOSS #OpenSource`;
 - `[AI USE]` in the post or a reply if your audience expects it.
 

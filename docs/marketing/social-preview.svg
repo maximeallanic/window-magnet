@@ -22,7 +22,7 @@
     <text x="64" y="468" font-size="34" fill="#e4e1f0">Drag near another window: it lands</text>
     <text x="64" y="512" font-size="34" fill="#e4e1f0">flush, with a spring. Pull to let go.</text>
 
-    <text x="64" y="592" font-size="28" fill="#a8a5b8">GNOME 51 · MIT · free software</text>
+    <text x="64" y="592" font-size="28" fill="#a8a5b8">GNOME 50 and 51 · MIT · free software</text>
   </g>
 
   <!-- Crop of the poster around the three windows (poster is 1280x720). -->

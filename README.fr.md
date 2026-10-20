@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/maximeallanic/window-magnet/actions/workflows/ci.yml/badge.svg)](https://github.com/maximeallanic/window-magnet/actions/workflows/ci.yml)
 [![Licence : MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
-[![GNOME Shell 51](https://img.shields.io/badge/GNOME%20Shell-51-4a86cf.svg)](#compatibilité)
+[![GNOME Shell 50 | 51](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf.svg)](#compatibilité)
 
 [English](README.md) | Français
 
@@ -20,7 +20,7 @@ nouveau](media/demo.gif)
 curl -fsSL https://raw.githubusercontent.com/maximeallanic/window-magnet/main/install.sh | bash
 ```
 
-**GNOME Shell 51 uniquement.** Sous Wayland, déconnectez-vous puis reconnectez-vous une fois après la première
+**GNOME Shell 50 et 51.** Sous Wayland, déconnectez-vous puis reconnectez-vous une fois après la première
 installation. Cette commande télécharge la version 0.1.0 depuis GitHub : tant qu'elle n'est pas publiée, la commande
 s'arrête sur une erreur de téléchargement ; [installez depuis les sources](#depuis-les-sources) en attendant. Pas
 encore sur extensions.gnome.org.
@@ -59,7 +59,7 @@ rien.
 
 | | S'aimante aux autres fenêtres | S'aimante aux bords de l'écran | Animation | Autre chose |
 |---|---|---|---|---|
-| **Window Magnet** (GNOME 51) | oui, sans touche à maintenir | oui, aussi en redimensionnant | ressort | place les onglets déposés |
+| **Window Magnet** (GNOME 50, 51) | oui, sans touche à maintenir | oui, aussi en redimensionnant | ressort | place les onglets déposés |
 | GNOME 51 sans extension | seulement en maintenant Ctrl | résiste aux bords de l'écran et des moniteurs ; Maj fait s'aimanter | aucune | glisser en haut ou sur un côté pour paver |
 | [Tiling Assistant](https://extensions.gnome.org/extension/3733/tiling-assistant/), [Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/) | non : elles remplissent des zones et des dispositions | zones | — | pavage, assistant d'aimantation, dispositions |
 | KDE Plasma (KWin) | oui, « window snap zone » | oui, « screen edge snap zone » | — | intégré au bureau |
@@ -155,11 +155,12 @@ gsettings --schemadir ~/.local/share/gnome-shell/extensions/window-magnet@maxime
 | GNOME Shell | État |
 |-------------|------|
 | 51 | Pris en charge, testé (Debian testing, Wayland) |
-| 50 et avant | Non déclaré : GNOME refuse de la charger |
+| 50 | Pris en charge, testé (GNOME Shell 50.5 imbriqué, Debian testing) |
+| 49 et avant | Non déclaré : GNOME refuse de la charger |
 
 - **Version 0.1.0, première publication** : couverte par des tests unitaires et par un test de bout en bout dans un
-  GNOME Shell 51 imbriqué qui fait glisser de vraies fenêtres ; pas encore essayée sur beaucoup de machines. Les
-  autres distributions en GNOME Shell 51 devraient fonctionner, et les retours sont bienvenus.
+  GNOME Shell imbriqué (50 et 51) qui fait glisser de vraies fenêtres ; pas encore essayée sur beaucoup de machines.
+  Les autres distributions en GNOME Shell 50 ou 51 devraient fonctionner, et les retours sont bienvenus.
 - **Pas encore sur extensions.gnome.org** ([liste de contrôle](docs/extensions-gnome-org.md), en anglais).
 - **Glissers au pointeur et au toucher seulement** : les déplacements au clavier (Alt+F7) ne s'aimantent pas.
 - **Traductions** : anglais et français pour l'instant. Les préférences suivent la langue du bureau via gettext ;
@@ -212,7 +213,7 @@ Voir [docs/how-it-works.md](docs/how-it-works.md) (en anglais). Développement, 
 
 ## Essayez-la et dites-nous
 
-Vous êtes sous GNOME Shell 51 ? Installez-la, déplacez quelques fenêtres, et
+Vous êtes sous GNOME Shell 50 ou 51 ? Installez-la, déplacez quelques fenêtres, et
 [ouvrez un ticket](https://github.com/maximeallanic/window-magnet/issues) avec ce qui vous a plu et ce qui coince :
 votre distribution, vos applications et vos écrans sont ce que les tests ne couvrent pas. Les traductions sont
 bienvenues aussi. Lisez [CONTRIBUTING.md](CONTRIBUTING.md) et le [code de conduite](CODE_OF_CONDUCT.md). Failles de

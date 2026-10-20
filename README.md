@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/maximeallanic/window-magnet/actions/workflows/ci.yml/badge.svg)](https://github.com/maximeallanic/window-magnet/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GNOME Shell 51](https://img.shields.io/badge/GNOME%20Shell-51-4a86cf.svg)](#compatibility)
+[![GNOME Shell 50 | 51](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf.svg)](#compatibility)
 
 English | [Français](README.fr.md)
 
@@ -19,7 +19,7 @@ the first one, then it is pulled away, snapped to the left edge of the screen an
 curl -fsSL https://raw.githubusercontent.com/maximeallanic/window-magnet/main/install.sh | bash
 ```
 
-**GNOME Shell 51 only.** On Wayland, log out and back in once after the first install. This command downloads the
+**GNOME Shell 50 and 51.** On Wayland, log out and back in once after the first install. This command downloads the
 v0.1.0 release from GitHub: until that release is published it stops with a download error, so
 [install from source](#from-source) instead. Not on extensions.gnome.org yet.
 
@@ -53,7 +53,7 @@ From each project's own documentation or source, checked on 2026-10-20. A dash m
 
 | | Snaps to other windows | Snaps to screen edges | Animation | What else it does |
 |---|---|---|---|---|
-| **Window Magnet** (GNOME 51) | yes, no key to hold | yes, also while resizing | spring | moves dropped tabs |
+| **Window Magnet** (GNOME 50, 51) | yes, no key to hold | yes, also while resizing | spring | moves dropped tabs |
 | GNOME 51, no extension | only while holding Ctrl | resists at screen and monitor edges; Shift makes it snap | none | drag to the top or a side to tile |
 | [Tiling Assistant](https://extensions.gnome.org/extension/3733/tiling-assistant/), [Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/) | no: they fill screen regions and layouts | regions | — | tiling, snap assist, layouts |
 | KDE Plasma (KWin) | yes, "window snap zone" | yes, "screen edge snap zone" | — | built into the desktop |
@@ -145,11 +145,12 @@ gsettings --schemadir ~/.local/share/gnome-shell/extensions/window-magnet@maxime
 | GNOME Shell | Status |
 |-------------|--------|
 | 51 | Supported, tested (Debian testing, Wayland) |
-| 50 and older | Not declared: GNOME will not load it |
+| 50 | Supported, tested (nested GNOME Shell 50.5 from Debian testing) |
+| 49 and older | Not declared: GNOME will not load it |
 
-- **Version 0.1.0, first release**: covered by unit tests and by an end-to-end run in a nested GNOME Shell 51 that
-  drags real windows; not yet tried on many machines. Other distributions running GNOME Shell 51 should work, and
-  reports are welcome.
+- **Version 0.1.0, first release**: covered by unit tests and by an end-to-end run in a nested GNOME Shell (50 and 51)
+  that drags real windows; not yet tried on many machines. Other distributions running GNOME Shell 50 or 51 should
+  work, and reports are welcome.
 - **Not on extensions.gnome.org yet** ([checklist](docs/extensions-gnome-org.md)).
 - **Pointer and touch drags only**: keyboard moves (Alt+F7) do not snap.
 - **Translations**: English and French so far. The preferences follow your desktop language through gettext; adding
@@ -197,7 +198,7 @@ See [docs/how-it-works.md](docs/how-it-works.md). Development, tests and media r
 
 ## Try it and tell us
 
-Running GNOME Shell 51? Install it, drag a few windows around, and
+Running GNOME Shell 50 or 51? Install it, drag a few windows around, and
 [open an issue](https://github.com/maximeallanic/window-magnet/issues) with what felt right and what did not: your
 distribution, your apps and your monitors are what the tests cannot cover. Translations are welcome too. Read
 [CONTRIBUTING.md](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md). Security issues:

@@ -8,7 +8,7 @@ set -uo pipefail
 
 UUID=window-magnet@maximeallanic.github.io
 SCHEMA=org.gnome.shell.extensions.window-magnet
-SUPPORTED_SHELL=(51)
+SUPPORTED_SHELL=(50 51)
 status=0
 ok() { printf '  \033[32mok\033[0m    %s\n' "$*"; }
 bad() { printf '  \033[31mfail\033[0m  %s\n' "$1"; [[ -n "${2:-}" ]] && printf '        -> %s\n' "$2"; status=1; }

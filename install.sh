@@ -17,8 +17,8 @@ UUID=window-magnet@maximeallanic.github.io
 REPO=maximeallanic/window-magnet
 VERSION=0.1.0
 # SHA-256 of the release zip of $VERSION (scripts/release.sh writes it; the release workflow checks the uploaded zip).
-ZIP_SHA256=9b8d443a795e217ccdf83c958072085439ac3090e9c9f296af473628c0f50868
-SUPPORTED_SHELL=(51)
+ZIP_SHA256=f9e01990f2b8e9134a3235316363afcfe332ada64054ce3eab920841e026036c
+SUPPORTED_SHELL=(50 51)
 
 from_source=0; zip_file=''; enable=1; dry=0
 while [[ $# -gt 0 ]]; do

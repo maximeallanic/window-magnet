@@ -208,6 +208,11 @@ def e2e(out):
         c.check("disable: extension inactive", state["state"] == 2, json.dumps(state))
         w = window("A")
         c.check("disable: no translation left", w["tx"] == 0 and w["ty"] == 0, json.dumps(w))
+        # Released while disabled, the window ends where the pointer put it, unsnapped (x0 - 70 + 212). Mutter may
+        # apply that final move well after the release (GNOME Shell 50 does, late enough to undo the place() below):
+        # wait for it before going on.
+        if not wait_until(lambda: window("A")["x"] == x0 - 70 + 212, 5):
+            print(f"note: A did not settle at its released position: {json.dumps(window('A'))}", flush=True)
         call("SetEnabled", "(b)", True)
         wait_until(lambda: json.loads(call("State")[0])["state"] == 1, 5)
         state = json.loads(call("State")[0])

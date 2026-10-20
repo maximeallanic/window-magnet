@@ -11,6 +11,7 @@ First public release.
 
 ### Added
 
+- Supports GNOME Shell 50 and 51; the nested end-to-end test and the preferences window pass on both.
 - Edge snapping while moving a window: both edges of each axis snap to the edges of the other windows on the same
   workspace and monitor, and to the edges of the monitor's work area.
 - Edge snapping while resizing: the edges you drag snap, live, in the same frame as Mutter's own resize.
