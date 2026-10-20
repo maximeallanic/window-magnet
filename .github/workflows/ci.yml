@@ -14,7 +14,7 @@ jobs:
     name: ESLint (GJS)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -34,7 +34,7 @@ jobs:
           apt-get update
           apt-get install -y --no-install-recommends ca-certificates git gjs gnome-shell gettext python3 \
               shellcheck libglib2.0-bin
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Run the headless checks as a normal user (install.sh refuses root)
         run: |
           useradd --create-home ci
