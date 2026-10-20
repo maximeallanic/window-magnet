@@ -92,7 +92,7 @@ jobs:
       TAG: ${{ github.ref_name }}
       PRERELEASE: ${{ needs.build.outputs.prerelease }}
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: release-files
       - name: Create the release
