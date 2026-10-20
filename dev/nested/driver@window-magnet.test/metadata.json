@@ -1,0 +1,12 @@
+{
+  "uuid": "driver@window-magnet.test",
+  "name": "Window Magnet test driver",
+  "description": "Drives the nested GNOME Shell of dev/nested (virtual pointer and keyboard, window placement, screencast helpers). Never enable it in a real session. It lists two session modes on purpose: GNOME Shell enables extensions with more session modes first, and disabling an extension temporarily disables every extension enabled after it, so the driver must come before Window Magnet to survive the disable/enable checks.",
+  "shell-version": [
+    "51"
+  ],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ]
+}

@@ -1,0 +1,81 @@
+# French translations for window-magnet package
+# Traductions françaises du paquet window-magnet.
+# Copyright (C) 2026 Maxime Allanic
+# This file is distributed under the same license as the window-magnet package.
+# Maxime Allanic, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: window-magnet\n"
+"Report-Msgid-Bugs-To: https://github.com/maximeallanic/window-magnet/issues\n"
+"POT-Creation-Date: 2026-10-20 12:00+0200\n"
+"PO-Revision-Date: 2026-10-20 12:00+0200\n"
+"Last-Translator: Maxime Allanic\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: extension/prefs.js:18
+msgid "Snapping"
+msgstr "Aimantation"
+
+#: extension/prefs.js:21
+msgid "Snap distance"
+msgstr "Distance d’aimantation"
+
+#: extension/prefs.js:22
+msgid "How close, in pixels, an edge must come before it snaps"
+msgstr "Distance, en pixels, à partir de laquelle un bord s’aimante"
+
+#: extension/prefs.js:27
+msgid "Snap to other windows"
+msgstr "Aimanter aux autres fenêtres"
+
+#: extension/prefs.js:28
+msgid "Edges of the other windows on the same workspace and screen"
+msgstr "Bords des autres fenêtres du même espace de travail et du même écran"
+
+#: extension/prefs.js:29
+msgid "Snap to screen edges"
+msgstr "Aimanter aux bords de l’écran"
+
+#: extension/prefs.js:30
+msgid "Edges of the screen, below the top bar and beside docks"
+msgstr "Bords de l’écran, sous la barre supérieure et à côté des docks"
+
+#: extension/prefs.js:31
+msgid "Snap while resizing"
+msgstr "Aimanter pendant le redimensionnement"
+
+#: extension/prefs.js:32
+msgid "The edges you drag snap too"
+msgstr "Les bords que vous tirez s’aimantent aussi"
+
+#: extension/prefs.js:35
+msgid "Motion"
+msgstr "Mouvement"
+
+#: extension/prefs.js:36
+msgid "Spring animation"
+msgstr "Animation à ressort"
+
+#: extension/prefs.js:37
+msgid "Smooths the jump of a snap. Follows the system Animations setting"
+msgstr "Adoucit le saut de l’aimantation. Suit le réglage Animations du système"
+
+#: extension/prefs.js:40
+msgid "Tabs"
+msgstr "Onglets"
+
+#: extension/prefs.js:41
+msgid "Open dropped tabs where they are dropped"
+msgstr "Ouvrir les onglets déposés là où ils sont déposés"
+
+#: extension/prefs.js:42
+msgid ""
+"A tab dragged out of a window and dropped on the desktop opens there, at the "
+"size of its window"
+msgstr "Un onglet sorti d’une fenêtre et déposé sur le bureau s’ouvre à cet endroit, à la taille de sa fenêtre"

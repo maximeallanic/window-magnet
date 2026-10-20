@@ -1,0 +1,12 @@
+{
+  "uuid": "window-magnet@maximeallanic.github.io",
+  "name": "Window Magnet",
+  "description": "Snaps the edges of a window to the edges of other windows and of the screen while you move or resize it, with a short spring so the snap feels magnetic instead of abrupt.\n\n* Move: both edges of each axis snap to nearby window and screen edges\n* Resize: the edges you drag snap too\n* Tabs: a tab dragged out of an app window and dropped on the desktop opens its new window where you dropped it\n\nThreshold and every behaviour can be changed in the preferences.",
+  "shell-version": [
+    "51"
+  ],
+  "version-name": "0.1.0",
+  "url": "https://github.com/maximeallanic/window-magnet",
+  "settings-schema": "org.gnome.shell.extensions.window-magnet",
+  "gettext-domain": "window-magnet"
+}

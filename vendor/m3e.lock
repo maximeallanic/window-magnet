@@ -1,0 +1,9 @@
+# Vendored copy of the M3E motion toolkit. Refresh with scripts/update-m3e.sh <m3e-gnome-extensions checkout>.
+source https://github.com/maximeallanic/m3e-gnome-extensions
+commit 9f8f5f47866e619a876522a75a16146b721157bb
+path shared/m3e
+ee56de14904cecfd67b1c0999cd479c2ce15e1634c5e1543eff0cad579aa4f22  animate.js
+8c833b82c784b96fbe638f0e8624d885128b4929428036c6d451b153b9b462c9  curve.js
+fad18f17adf2b1b55cf9e6b3bd80cbcf01a968fe76696aef3f9956d15b8442d7  spring.js
+dfe523af433f174704c450443e4df8862a1f7680bdd57e999c97171f0903bff0  tokens.js
+91a8315a74fe08f56cfb733e404cca9e1e4b516034ec31f86d523b8064035793  track.js

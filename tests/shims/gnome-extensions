@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Fake gnome-extensions for tests/test_install.sh: `install` is the real command (it only extracts the zip into
+# $XDG_DATA_HOME and compiles the schema); everything that would talk to a running GNOME Shell fails like it does when
+# the Shell does not know the extension yet, unless FAKE_SHELL_KNOWS is set (then `enable` succeeds, as for an update).
+# shellcheck disable=SC1111  # the curly quotes are the real message of gnome-extensions
+case "$1" in
+    install) exec "$REAL_GNOME_EXTENSIONS" "$@" ;;
+    info) echo "Extension “$2” doesn't exist" >&2; exit 2 ;;
+    enable) [[ -n "${FAKE_SHELL_KNOWS:-}" ]] ;;
+    *) exit 1 ;;
+esac

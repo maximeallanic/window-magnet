@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:   # reused by the release workflow
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: ESLint (GJS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx eslint .
+
+  test:
+    name: Tests, translations, zip, install scripts
+    runs-on: ubuntu-latest
+    # Debian testing: recent gjs, gnome-extensions and the gettext that release zips are built with (scripts/release.sh).
+    # GNOME Shell 51 itself is only in experimental; these checks need no running Shell.
+    container: debian:testing
+    steps:
+      - name: Install GJS, GNOME Shell tools, gettext and ShellCheck
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git gjs gnome-shell gettext python3 \
+              shellcheck libglib2.0-bin
+      - uses: actions/checkout@v4
+      - name: Run the headless checks as a normal user (install.sh refuses root)
+        run: |
+          useradd --create-home ci
+          chown -R ci: .
+          su ci -c 'tests/run.sh'
+      - name: Pack for extensions.gnome.org
+        run: su ci -c 'scripts/pack.sh'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: extension-zip
+          path: dist/*.zip

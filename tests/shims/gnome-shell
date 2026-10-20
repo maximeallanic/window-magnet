@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Fake gnome-shell for tests/test_install.sh: only --version.
+[[ "$1" == --version ]] && echo "GNOME Shell ${FAKE_SHELL_VERSION:-51.0}"

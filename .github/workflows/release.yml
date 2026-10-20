@@ -1,0 +1,103 @@
+name: Release
+
+# A tag vX.Y.Z runs the tests, rebuilds the zip, checks that it is byte-for-byte the one whose SHA-256 install.sh pins
+# (scripts/release.sh --ci) and publishes a GitHub release with the zip and SHA256SUMS.
+# "Run workflow" (workflow_dispatch) does everything except publishing.
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to build, without the leading v (dry run: nothing is published)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: Tests
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
+  build:
+    name: Build and check the release zip
+    needs: [ci]
+    runs-on: ubuntu-latest
+    # Same toolchain as the one scripts/release.sh is run with (Debian testing): the zip must be reproducible.
+    container: debian:testing
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      prerelease: ${{ steps.v.outputs.prerelease }}
+    steps:
+      - name: Install the packaging tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git gnome-shell gettext python3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Work out the version
+        id: v
+        env:
+          EVENT: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+        shell: bash
+        run: |
+          if [[ "$EVENT" == push ]]; then version="${REF_NAME#v}"; else version="$INPUT_VERSION"; fi
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]] || { echo "::error::bad version '$version'"; exit 1; }
+          if [[ "$version" == 0.* || "$version" == *-* ]]; then prerelease=true; else prerelease=false; fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "prerelease=$prerelease" >> "$GITHUB_OUTPUT"
+      - name: The tag must point at a commit of main
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || { echo "::error::tag is not on main"; exit 1; }
+      - name: Versions match and the zip is the one install.sh pins
+        run: scripts/release.sh --ci "${{ steps.v.outputs.version }}"
+      - name: Build the zip and the checksums
+        shell: bash
+        run: |
+          scripts/pack.sh --out dist
+          (cd dist && sha256sum -- *.zip > SHA256SUMS && cat SHA256SUMS)
+          scripts/release-notes.sh "${{ steps.v.outputs.version }}" > release-notes.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-files
+          path: |
+            dist/*
+            release-notes.md
+          if-no-files-found: error
+
+  publish:
+    name: Publish the GitHub release
+    needs: [build]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAG: ${{ github.ref_name }}
+      PRERELEASE: ${{ needs.build.outputs.prerelease }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-files
+      - name: Create the release
+        run: |
+          flags=()
+          if [[ "$PRERELEASE" == true ]]; then flags+=(--prerelease); fi
+          gh release create "$TAG" dist/* --repo "$GITHUB_REPOSITORY" --verify-tag \
+              --title "$TAG" --notes-file release-notes.md "${flags[@]}"

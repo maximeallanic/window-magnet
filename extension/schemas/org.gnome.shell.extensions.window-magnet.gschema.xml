@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.window-magnet" path="/org/gnome/shell/extensions/window-magnet/">
+    <key name="snap-threshold" type="i">
+      <range min="4" max="64"/>
+      <default>16</default>
+      <summary>Snap distance</summary>
+      <description>Distance, in logical pixels, under which a window edge snaps to another edge.</description>
+    </key>
+    <key name="snap-to-windows" type="b">
+      <default>true</default>
+      <summary>Snap to other windows</summary>
+      <description>Edges of the other visible windows on the same workspace and monitor attract the window.</description>
+    </key>
+    <key name="snap-to-screen-edges" type="b">
+      <default>true</default>
+      <summary>Snap to screen edges</summary>
+      <description>Edges of the monitor's work area (the screen minus the top bar and docks) attract the window.</description>
+    </key>
+    <key name="snap-while-resizing" type="b">
+      <default>true</default>
+      <summary>Snap while resizing</summary>
+      <description>The dragged edges of a window being resized snap too.</description>
+    </key>
+    <key name="spring-animation" type="b">
+      <default>true</default>
+      <summary>Spring animation</summary>
+      <description>The jump of a snap is caught up by a short spring. Off: the window jumps. GNOME's global "Animations" setting is honoured either way.</description>
+    </key>
+    <key name="place-dropped-tabs" type="b">
+      <default>true</default>
+      <summary>Open dropped tabs where they are dropped</summary>
+      <description>A tab dragged out of an application window and dropped on the desktop opens its window at the drop point, at the size of the window it came from.</description>
+    </key>
+  </schema>
+</schemalist>

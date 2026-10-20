@@ -1,0 +1,80 @@
+# Window Magnet translation template.
+# Copyright (C) 2026 Maxime Allanic
+# This file is distributed under the same license as the window-magnet package.
+#
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: window-magnet\n"
+"Report-Msgid-Bugs-To: https://github.com/maximeallanic/window-magnet/issues\n"
+"POT-Creation-Date: 2026-10-20 10:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension/prefs.js:18
+msgid "Snapping"
+msgstr ""
+
+#: extension/prefs.js:21
+msgid "Snap distance"
+msgstr ""
+
+#: extension/prefs.js:22
+msgid "How close, in pixels, an edge must come before it snaps"
+msgstr ""
+
+#: extension/prefs.js:27
+msgid "Snap to other windows"
+msgstr ""
+
+#: extension/prefs.js:28
+msgid "Edges of the other windows on the same workspace and screen"
+msgstr ""
+
+#: extension/prefs.js:29
+msgid "Snap to screen edges"
+msgstr ""
+
+#: extension/prefs.js:30
+msgid "Edges of the screen, below the top bar and beside docks"
+msgstr ""
+
+#: extension/prefs.js:31
+msgid "Snap while resizing"
+msgstr ""
+
+#: extension/prefs.js:32
+msgid "The edges you drag snap too"
+msgstr ""
+
+#: extension/prefs.js:35
+msgid "Motion"
+msgstr ""
+
+#: extension/prefs.js:36
+msgid "Spring animation"
+msgstr ""
+
+#: extension/prefs.js:37
+msgid "Smooths the jump of a snap. Follows the system Animations setting"
+msgstr ""
+
+#: extension/prefs.js:40
+msgid "Tabs"
+msgstr ""
+
+#: extension/prefs.js:41
+msgid "Open dropped tabs where they are dropped"
+msgstr ""
+
+#: extension/prefs.js:42
+msgid ""
+"A tab dragged out of a window and dropped on the desktop opens there, at the "
+"size of its window"
+msgstr ""

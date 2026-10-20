@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Fake gsettings for tests/test_install.sh: keys live in $FAKE_GSETTINGS (one "schema key=value" per line).
+set -euo pipefail
+db="${FAKE_GSETTINGS:?}"
+touch "$db"
+case "$1" in
+    get) line="$(grep -F -- "$2 $3=" "$db" | tail -n1 || true)"
+         if [[ -n "$line" ]]; then echo "${line#*=}"; else
+             case "$3" in enabled-extensions|disabled-extensions) echo "@as []" ;; *) echo false ;; esac; fi ;;
+    set) grep -vF -- "$2 $3=" "$db" >"$db.new" || true; echo "$2 $3=$4" >>"$db.new"; mv "$db.new" "$db" ;;
+    --schemadir) exec "$REAL_GSETTINGS" "$@" ;;
+    *) echo "fake gsettings: unsupported: $*" >&2; exit 1 ;;
+esac

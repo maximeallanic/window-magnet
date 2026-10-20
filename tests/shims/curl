@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Fake curl for tests/test_install.sh: "downloads" $FAKE_DOWNLOAD to the -o target, records the URL, never networks.
+out=''
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -o) out="$2"; shift ;;
+        https://*) echo "$1" >>"${FAKE_CURL_LOG:?}" ;;
+    esac
+    shift
+done
+[[ -n "$out" && -f "${FAKE_DOWNLOAD:-}" ]] || exit 22
+cp -- "$FAKE_DOWNLOAD" "$out"

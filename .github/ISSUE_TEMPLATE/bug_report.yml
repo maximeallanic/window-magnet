@@ -1,0 +1,43 @@
+name: Bug report
+description: Window Magnet does not work or misbehaves.
+labels: [bug]
+body:
+  - type: input
+    id: shell
+    attributes:
+      label: GNOME Shell version
+      description: Output of `gnome-shell --version`.
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes:
+      label: Window Magnet version
+      description: Shown by `gnome-extensions info window-magnet@maximeallanic.github.io`.
+    validations: {required: true}
+  - type: dropdown
+    id: session
+    attributes:
+      label: Session type
+      options: [Wayland, X11]
+    validations: {required: true}
+  - type: textarea
+    id: verify
+    attributes:
+      label: Output of verify.sh
+      description: "`curl -fsSL https://raw.githubusercontent.com/maximeallanic/window-magnet/main/verify.sh | bash`"
+      render: text
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: log
+    attributes:
+      label: Shell log
+      description: Output of `journalctl --user -b -o cat /usr/bin/gnome-shell | grep -i -A5 window-magnet`.
+      render: text
